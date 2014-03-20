@@ -1,13 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
  *= require_self
  *= require_tree .
  */
@@ -53,6 +44,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
+  font-family: sans-serif;
 }
 ol, ul {
   list-style: none;
@@ -73,4 +65,88 @@ table {
       -ms-transform: translate3d(0, 0, 0);
        -o-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
+}
+
+/* SCSS variables
+======================================================= */
+
+$green: #24632B;
+$darkblue: #0F3E7F;
+$lightblue: #81CBFF;
+$lightorange: #EB7F40;
+$orange: #FF5A27;
+$gray: #424241;
+
+$header-height: 70px;
+$content-width: 960px;
+
+/* General
+======================================================= */
+
+.content {
+  width: $content-width;
+  margin: 0 auto;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* Header
+======================================================= */
+
+.header-wrapper {
+  // background-color: $green;
+  height: $header-height;
+  color: $gray;
+}
+.site-title {
+  display: inline-block;
+  line-height: $header-height;
+  font-size: 30px;
+  font-weight: 600;
+  color: $green;
+  padding-right: 70px;
+}
+.nav-link {
+  display: inline-block;
+  font-size: 18px;
+  padding-right: 50px;
+}
+
+/* Home
+======================================================= */
+
+.home-wrapper {
+  background-color: $green;
+  height: 100%;
+}
+.background {
+  position: relative;
+  background-color: white;
+  background-image: image-url('background1.jpg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-position: center left;
+  height: 500px;
+}
+.text-box {
+  position: absolute;
+  top: 60%;
+  width: 220px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.days-left {
+  font-weight: 600;
+}
+.content.home {
+  height: 400px;
+  padding: 20px 0;
+  color: white;
 }
