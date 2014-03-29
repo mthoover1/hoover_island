@@ -18,6 +18,10 @@ class WeatherPresenter
     "<span class='wind-mph'>#{@forecast.currently.windSpeed.round}</span>mph #{wind_direction(@forecast.currently.windBearing)}".html_safe
   end
 
+  def near_forecast_summary
+    @forecast.hourly.summary
+  end
+
   def forecast_high_temp(day)
     @forecast.daily.data[day].temperatureMax.round
   end
@@ -39,7 +43,11 @@ class WeatherPresenter
     seconds_to_time(@forecast.daily.data[day].sunsetTime.to_s)
   end
 
-  def forecast_precipitation(day)
+  def forecast_precip_type(day)
+    @forecast.daily.data[day].precipType.capitalize
+  end
+
+  def forecast_precip_probability(day)
     (@forecast.daily.data[day].precipProbability * 100).round
   end
 
