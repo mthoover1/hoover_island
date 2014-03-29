@@ -91,6 +91,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.page-title {
+  font-weight: 600;
+  font-size: 34px;
+  color: $darkblue;
+  margin-bottom: 10px;
+}
 
 
 /* Header
@@ -149,4 +155,81 @@ a {
   height: 400px;
   padding: 20px 0;
   color: white;
+}
+
+/* Weather Center
+======================================================= */
+
+.today {
+  background-color: lightgray;
+  padding: 10px;
+  .temp {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 80px;
+  }
+  .details {
+    display: inline-block;
+  }
+  .wind-mph {
+    font-weight: 600;
+  }
+}
+.day-container {
+
+  background-color: lightgray;
+}
+.forecast-day {
+  display: table;
+  padding: 10px;
+  margin: 25px 0;
+  .forecast-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .day {
+    font-size: 28px;
+    width: 20%;
+    width: 120px;
+  }
+  .high {
+    font-size: 34px;
+    font-weight: 600;
+    width: 60px;
+  }
+  .low {
+    font-size: 22px;
+    width: 70px;
+  }
+  .precip {
+    text-align: center;
+    width: 80px;
+  }
+  .precip-text {
+    font-size: 10px;
+    margin-bottom: 6px;
+    // font-weight: 600;
+  }
+  .precip-chance {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .sun {
+    padding-left: 20px;
+    width: 130px;
+  }
+  .sun-type {
+    padding-right: 4px;
+    font-size: 12px;
+    // font-weight: 600;
+  }
+  .sun-time {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .summary {
+    padding-left: 20px;
+    font-size: 13px;
+    line-height: 16px;
+  }
 }

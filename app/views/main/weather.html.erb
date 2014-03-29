@@ -1,0 +1,42 @@
+<div class="content">
+  <div class="page-title">Weather Center</div>
+
+  <h2>Current Weather</h2>
+  <div class="today">
+    <div class="temp"><%= @weather.current_temp %>&deg</div>
+    <div class="details">
+      <div><%= @weather.current_summary %></div>
+      <div><%= @weather.current_wind %></div>
+      <div><%= @weather.forecast.hourly.summary %></div>
+    </div>
+  </div>
+
+  <h2>7 Day Forecast</h2>
+  <div><%= @weather.forecast.daily.summary %></div>
+  <% (1..7).to_a.each do |day| %>
+    <div class="day-container">
+      <div class="forecast-day">
+        <div class="forecast-cell day"><%= @weather.forecast_day_of_week(day) %></div>
+        <div class="forecast-cell high"><%= @weather.forecast_high_temp(day) %>&deg</div>
+        <div class="forecast-cell low"><%= @weather.forecast_low_temp(day) %>&deg</div>
+        <div class="forecast-cell precip">
+          <div class="precip-text">Chance of Precip.</div>
+          <div class="precip-chance"><%= @weather.forecast_precipitation(day) %>%</div>
+        </div>
+        <div class="forecast-cell sun">
+          <table>
+            <tr>
+              <td class="sun-type">Sunrise</td>
+              <td class="sun-time"><%= @weather.forecast_sunrise(day) %></td>
+            </tr>
+            <tr>
+              <td class="sun-type">Sunset</td>
+              <td class="sun-time"><%= @weather.forecast_sunset(day) %></td>
+            </tr>
+          </table>
+        </div>
+        <div class="forecast-cell summary"><%= @weather.forecast_summary(day) %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

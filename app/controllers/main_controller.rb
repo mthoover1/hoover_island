@@ -1,6 +1,12 @@
+require 'weather_presenter'
+
 class MainController < ApplicationController
   def home
     set_days_left_message
+  end
+
+  def weather
+    @weather = WeatherPresenter.new
   end
 
   private
