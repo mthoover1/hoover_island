@@ -1,21 +1,16 @@
-Hoover Island
-=============
+= Hoover Island
 
 Calendar planner, info, rules/regulations, weather center.
 
----
+== Setup
 
-### Setup
-
-#### Weather API key setup:
-- get API key from forecast.io
-- create file config/local_env.yml
+=== Weather API key setup:
+- get API key from forecast.io   (https://developer.forecast.io/)
+- create file +config/local_env.yml+
 - in that file, put:
-```
-FORECAST_IO_KEY: '(your key here)'
-```
+ FORECAST_IO_KEY: '(your key here)'
 
-#### Creating Users
+=== Creating Users
 Bcrypt requires :password and :password_confirmation.  Make them identical strings.
-```
-Person.create(first_name: "John", last_name: "Doe", password: "1234", password_confirmation: "1234")
+
+ Person.create(first_name: "John", last_name: "Doe", password: "1234", password_confirmation: "1234")
