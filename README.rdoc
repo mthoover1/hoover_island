@@ -4,7 +4,7 @@ Calendar planner, info, rules/regulations, weather center.
 
 == Setup
 
-=== Weather API key setup:
+=== Weather API key setup
 - get API key from forecast.io   (https://developer.forecast.io/)
 - create file +config/local_env.yml+
 - in that file, put:

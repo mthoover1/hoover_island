@@ -7,6 +7,15 @@ class MainController < ApplicationController
     set_days_left_message
   end
 
+  def history
+    @trips = Trip.all.order(:year).reverse
+    @years = @trips.map(&:year).uniq
+    @leaderboard = Person.all.sort_by{|person| person.trip_count}.reverse
+  end
+
+  def calendar
+  end
+
   def weather
     @weather = WeatherPresenter.new
   end
@@ -19,17 +28,17 @@ class MainController < ApplicationController
     next_year = year + 1
 
     this_season_start = "#{year}/06/01".to_date
-    this_season_end   = "#{year}/08/31".to_date
+    this_season_end   = "#{year}/09/15".to_date
     next_season_start = "#{next_year}/06/01".to_date
 
     if today < this_season_start
-      @days_left = "#{("#{year}/06/01".to_date - today).to_i} days"
+      @days_left = "#{(this_season_start - today).to_i} days"
       @days_left_message = "until the season begins."
     elsif today == this_season_start
       @days_left = "Season opens today!"
       @days_left_message = nil
     elsif today > this_season_start && today < this_season_end
-      @days_left = "#{("#{year}/08/31".to_date - today).to_i} days"
+      @days_left = "#{(this_season_end - today).to_i} days"
       @days_left_message = "until the season ends."
     elsif today == this_season_end
       @days_left = "Season ends today..."

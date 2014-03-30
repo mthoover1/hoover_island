@@ -1,0 +1,14 @@
+<div class="content page-container green-background">
+  <div class="page-title"><%= @person.full_name %></div>
+
+  <div>Visited the Island <%= @person.trip_count %> times.</div>
+
+  <% @person.trips.order(:year).each do |trip| %>
+    <div><%= trip.year %></div>
+    <% trip.people.each do |person| %>
+      <% if person != @person %>
+        <div>...........<%= person.full_name %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

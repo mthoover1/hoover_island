@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'header' unless current_page?(login_url)%>
+  <%= render 'main/header' unless current_page?(login_url)%>
   <%= yield %>
 
 </body>

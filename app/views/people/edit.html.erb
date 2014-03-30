@@ -1,0 +1,20 @@
+<div class="content page-container green-background">
+  <div class="page-title">Edit <%= @person.full_name %></div>
+  <%= form_for @person do |f| %>
+    <div class="field">
+      <%= f.text_field :first_name, placeholder: 'First Name', class: 'upper', spellcheck: false %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :last_name, placeholder: 'Last Name', class: 'middle', spellcheck: false %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :email, placeholder: 'Email Address', class: 'lower', spellcheck: false %>
+    </div>
+
+    <div class="field">
+      <%= f.submit "Update #{@person.first_name}", class: 'button button-blue' %>
+    </div>
+  <% end %>
+</div>

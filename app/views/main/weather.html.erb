@@ -1,8 +1,8 @@
-<div class="content">
-  <div class="page-title">Weather Center</div>
+<div class="content page-container">
+  <div class="page-title">Island Weather Center</div>
 
-  <h2>Current Weather</h2>
   <div class="today">
+    <div class="today-header">Current Conditions</div>
     <div class="temp"><%= @weather.current_temp %>&deg</div>
     <div class="details">
       <div><%= @weather.current_summary %></div>
@@ -23,8 +23,11 @@
     </div>
   </div>
 
-  <h2>7 Day Forecast</h2>
-  <div><%= @weather.forecast.daily.summary %></div>
+  <div class="seven-day-container">
+    <div class="seven-day-header">7 Day Forecast Summary</div>
+    <div class="seven-day-summary"><%= @weather.forecast.daily.summary %></div>
+  </div>
+
   <% (1..7).to_a.each do |day| %>
     <div class="day-container">
       <div class="forecast-day">

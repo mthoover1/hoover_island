@@ -1,0 +1,7 @@
+<div class="content page-container green-background">
+  <div class="page-title">People</div>
+
+  <% @people.each do |person| %>
+    <div><%= link_to person.full_name, person_path(person) %></div>
+  <% end %>
+</div>

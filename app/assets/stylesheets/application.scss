@@ -76,6 +76,7 @@ $lightblue: #81CBFF;
 $lightorange: #EB7F40;
 $orange: #FF5A27;
 $gray: #424241;
+$darkgray: #282828;
 
 $header-height: 70px;
 $content-width: 960px;
@@ -83,29 +84,52 @@ $content-width: 960px;
 /* General
 ======================================================= */
 
-.content {
-  width: $content-width;
-  margin: 0 auto;
+body {
+  background-color: $green;
 }
 a {
   color: inherit;
   text-decoration: none;
 }
-.page-title {
-  font-weight: 600;
-  font-size: 34px;
-  color: $darkblue;
-  margin-bottom: 10px;
+.content {
+  width: $content-width;
+  margin: 0 auto;
 }
-
+.page-container {
+  margin-top: 20px;
+}
+.page-title {
+  font-weight: 300;
+  font-size: 60px;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.green-background {
+  color: white;
+}
 
 /* Header
 ======================================================= */
 
 .header-wrapper {
-  // background-color: $green;
+  background-color: white;
   height: $header-height;
   color: $gray;
+}
+.logo {
+  display: inline-block;
+  // height: 40px;
+  // width: 96px;
+  // border: 4px solid $darkblue;
+  // border-radius: 8px;
+  margin-right: 10px;
+}
+.logo img {
+  // padding-top: 6px;
+  // margin-left: 6px;
+  vertical-align: bottom;
+  width: 100px;
 }
 .site-title {
   display: inline-block;
@@ -113,12 +137,12 @@ a {
   font-size: 30px;
   font-weight: 600;
   color: $green;
-  padding-right: 70px;
+  padding-right: 30px;
 }
 .nav-link {
   display: inline-block;
-  font-size: 18px;
-  padding-right: 50px;
+  font-size: 14px;
+  padding-right: 20px;
 }
 
 /* Login
@@ -134,9 +158,9 @@ a {
 .login {
   background-color: white;
   width: 580px;
-  margin: 100px auto 0 auto;
+  margin: 140px auto 0 auto;
   border-radius: 8px;
-  border: 1px solid gray;
+  // border: 1px solid gray;
   padding: 40px 10px;
 }
 .field.title {
@@ -163,6 +187,11 @@ a {
     margin-bottom: -2px;
     border: 1px solid gray;
   }
+  .middle {
+    border-color: gray;
+    border-width: 0 1px 1px 1px;
+    margin-bottom: -2px;
+  }
   .lower {
     border-radius: 0 0 5px 5px;
     border-color: gray;
@@ -175,13 +204,23 @@ a {
     padding: 16px;
     border-radius: 5px;
     border: none;
-    background-color: $green;
     cursor: pointer;
   }
+  .button-green {
+    background-color: $green;
+  }
+  .button-blue {
+    background-color: $darkblue;
+  }
   .button:hover {
-    background-color: #34893c;
     transition-duration: 0.2s;
     -webkit-transition-duration: 0.2s;
+  }
+  .button-green:hover {
+    background-color: #34893c;
+  }
+  .button-blue:hover {
+    background-color: #11478e;
   }
   ::-webkit-input-placeholder { font-size: 14px; }
   ::-moz-placeholder { font-size: 14px; } /* firefox 19+ */
@@ -235,7 +274,14 @@ a {
 
 .today {
   background-color: lightgray;
+  border-radius: 3px;
   padding: 10px;
+  margin-bottom: 25px;
+  .today-header {
+    font-weight: 600;
+    font-size: 22px;
+    color: $darkblue;
+  }
   .temp {
     display: inline-block;
     font-weight: 600;
@@ -248,8 +294,24 @@ a {
     font-weight: 600;
   }
 }
+.seven-day-container {
+  background-color: lightgray;
+  border-radius: 3px;
+  padding: 16px 10px;
+  margin-bottom: 25px;
+}
+.seven-day-header {
+  font-weight: 600;
+  font-size: 22px;
+  color: $darkblue;
+  margin-bottom: 6px;
+}
+.seven-day-summary {
+  font-weight: 600;
+}
 .day-container {
   background-color: lightgray;
+  border-radius: 3px;
 }
 .forecast-day {
   display: table;
@@ -260,7 +322,9 @@ a {
     vertical-align: middle;
   }
   .day {
+    color: $darkblue;
     font-size: 28px;
+    font-weight: 600;
     width: 20%;
     width: 120px;
   }
@@ -289,6 +353,7 @@ a {
   .sun {
     padding-left: 20px;
     width: 130px;
+    line-height: 16px;
   }
   .sun-type {
     padding-right: 4px;
@@ -301,7 +366,45 @@ a {
   }
   .summary {
     padding-left: 20px;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 16px;
   }
+}
+
+/* History
+======================================================= */
+
+.year {
+  // border-bottom: 2px solid $gray;
+  text-align: center;
+  padding: 20px 0;
+}
+.year.odd {
+  background-color: $lightblue;
+}
+.year.even {
+  background-color: #519fff;
+}
+.year-title {
+  font-weight: 600;
+  color: $darkgray;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.trip {
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  padding: 10px;
+  width: 200px;
+  min-height: 120px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 4px 20px 4px;
+}
+.person {
+  font-weight: 300;
+  line-height: 18px;
+  color: $gray;
 }
