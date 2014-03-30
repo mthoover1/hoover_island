@@ -1,0 +1,25 @@
+<div class="login-container">
+  <div class="login">
+    <div class="field title">
+      Sign In
+    </div>
+
+    <% if flash[:alert] %>
+      <div class="field alert"><%= flash[:alert] %></div>
+    <% end %>
+
+    <%= form_for :session do |f| %>
+      <div class="field">
+        <%= f.text_field :email, placeholder: 'Email Address', class: 'upper', spellcheck: false, autofocus: true  %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, placeholder: 'Password', class: 'lower' %>
+      </div>
+
+      <div class="field">
+        <%= f.submit 'Sign In', class: 'button' %>
+      </div>
+    <% end %>
+  </div>
+</div>

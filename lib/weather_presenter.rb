@@ -44,7 +44,11 @@ class WeatherPresenter
   end
 
   def forecast_precip_type(day)
-    @forecast.daily.data[day].precipType.capitalize
+    if @forecast.daily.data[day].precipType.present?
+      @forecast.daily.data[day].precipType.capitalize
+    else
+      "Precip."
+    end
   end
 
   def forecast_precip_probability(day)

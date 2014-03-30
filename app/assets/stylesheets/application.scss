@@ -121,6 +121,79 @@ a {
   padding-right: 50px;
 }
 
+/* Login
+======================================================= */
+
+.login-container {
+  background-color: $darkblue;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+.login {
+  background-color: white;
+  width: 580px;
+  margin: 100px auto 0 auto;
+  border-radius: 8px;
+  border: 1px solid gray;
+  padding: 40px 10px;
+}
+.field.title {
+  font-weight: 600;
+  font-size: 24px;
+  color: $green;
+  margin-bottom: 24px;
+  // text-align: right;
+}
+.field {
+  width: 60%;
+  margin: 0 auto;
+  input {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    color: $gray;
+    background-color: #FAFAFA;
+    padding: 18px 10px;
+    outline: none;
+  }
+  .upper {
+    border-radius: 5px 5px 0 0;
+    margin-bottom: -2px;
+    border: 1px solid gray;
+  }
+  .lower {
+    border-radius: 0 0 5px 5px;
+    border-color: gray;
+    border-width: 0 1px 1px 1px;
+  }
+  .button {
+    margin-top: 20px;
+    font-weight: 400;
+    color: white;
+    padding: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: $green;
+    cursor: pointer;
+  }
+  .button:hover {
+    background-color: #34893c;
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+  }
+  ::-webkit-input-placeholder { font-size: 14px; }
+  ::-moz-placeholder { font-size: 14px; } /* firefox 19+ */
+  :-ms-input-placeholder { font-size: 14px; } /* ie */
+  input:-moz-placeholder { font-size: 14px; }
+}
+.alert {
+  font-weight: 600;
+  color: $orange;
+  margin-bottom: 6px;
+}
+
 /* Home
 ======================================================= */
 
@@ -176,7 +249,6 @@ a {
   }
 }
 .day-container {
-
   background-color: lightgray;
 }
 .forecast-day {

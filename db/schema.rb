@@ -13,12 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20140329162059) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "people", force: true do |t|
     t.string  "first_name"
     t.string  "last_name"
     t.string  "initials"
-    t.integer "seniority",  default: 10
+    t.integer "seniority",       default: 10
     t.string  "email"
+    t.string  "password_digest"
   end
 
 end

@@ -1,6 +1,8 @@
 require 'weather_presenter'
 
 class MainController < ApplicationController
+  before_filter :check_session
+
   def home
     set_days_left_message
   end
@@ -35,6 +37,12 @@ class MainController < ApplicationController
     elsif today > this_season_end
       @days_left = "#{(next_season_start - today).to_i} days"
       @days_left_message = "until next season begins."
+    end
+  end
+
+  def check_session
+    if !session[:person_id]
+      redirect_to login_url
     end
   end
 end
