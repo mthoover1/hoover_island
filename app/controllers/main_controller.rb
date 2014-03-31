@@ -10,7 +10,7 @@ class MainController < ApplicationController
   def history
     @trips = Trip.all.order(:year).reverse
     @years = @trips.map(&:year).uniq
-    @leaderboard = Person.all.sort_by{|person| person.trip_count}.reverse
+    @leaderboard = Person.all.sort_by(&:trip_count).reverse
   end
 
   def calendar

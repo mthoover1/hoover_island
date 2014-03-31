@@ -1,6 +1,4 @@
 class Person < ActiveRecord::Base
-  require 'digest'
-
   has_many :person_trips
   has_many :trips, through: :person_trips
 
