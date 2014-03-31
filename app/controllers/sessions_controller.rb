@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to root_path, alert: "Logged out"
+    redirect_to login_url, alert: "Logged out"
   end
 
   def password
