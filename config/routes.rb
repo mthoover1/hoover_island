@@ -3,9 +3,11 @@ HooverIsland::Application.routes.draw do
   root 'main#home'
 
   # Sessions
-  get    '/login',  to: 'sessions#new'
-  post   '/login',  to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  get    '/login',           to: 'sessions#new'
+  post   '/login',           to: 'sessions#create'
+  delete '/logout',          to: 'sessions#destroy'
+  get    '/forgot_password', to: 'sessions#password'
+  post   '/forgot_password', to: 'sessions#send_password_email'
 
   # Content
   get '/history',  to: 'main#history'

@@ -17,4 +17,18 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path, alert: "Logged out"
   end
+
+  def password
+  end
+
+  def send_password_email
+    person = Person.find_by_email(params[:session][:email])
+
+    if person
+      # send password reset email
+      redirect_to login_url, alert: "Password reset email sent"
+    else
+      redirect_to forgot_password_url, alert: "Email address not found"
+    end
+  end
 end

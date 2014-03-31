@@ -197,6 +197,10 @@ a {
     border-color: gray;
     border-width: 0 1px 1px 1px;
   }
+  .single-field {
+    border-radius: 5px;
+    border: 1px solid gray;
+  }
   .button {
     margin-top: 20px;
     font-weight: 400;
@@ -231,6 +235,17 @@ a {
   font-weight: 600;
   color: $orange;
   margin-bottom: 6px;
+}
+.login-link {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  color: $gray;
+  a:hover {
+    color: $orange;
+    transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+  }
 }
 
 /* Home
