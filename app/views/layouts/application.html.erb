@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'main/header' unless current_page?(login_url) || current_page?(forgot_password_url) %>
+  <%= render 'main/header' unless params[:controller] == 'sessions' %>
   <%= yield %>
 
 </body>
