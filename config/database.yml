@@ -1,14 +1,14 @@
 development:
   adapter: postgresql
-  database: db/development
+  database: db/hoover_island_development
   host: localhost
 
 test:
   adapter: postgresql
-  database: db/test
+  database: db/hoover_island_test
   host: localhost
 
 production:
   adapter: postgresql
-  database: db/production
+  database: db/hoover_island_production
   host: localhost
