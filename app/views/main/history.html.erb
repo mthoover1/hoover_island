@@ -23,7 +23,7 @@
         <div class="trip ">
         <% trip.people.order(:seniority, :first_name).each do |person| %>
           <div class="person">
-            <%= person.full_name %>
+            <%= link_to person.full_name, person_path(person) %>
           </div>
         <% end %>
       </div>
