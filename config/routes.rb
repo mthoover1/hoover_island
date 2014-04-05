@@ -14,6 +14,7 @@ HooverIsland::Application.routes.draw do
   get '/calendar', to: 'main#calendar'
   get '/weather',  to: 'main#weather'
 
+
   # People
   resources :people, only: [:index, :show, :edit, :update]
 
