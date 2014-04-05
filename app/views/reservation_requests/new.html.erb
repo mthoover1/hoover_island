@@ -1,0 +1,19 @@
+<div class="content page-container green-background">
+  <div class="page-title">Request a Reservation</div>
+
+  <div>Reservation For: <%= current_user.full_name %></div>
+
+  <div id="datepicker"></div>
+
+  <%= form_for @reservation_request do |f| %>
+    <%= f.hidden_field :person_id, value: current_user.id %>
+    <%= f.text_field :start_date, placeholder: 'Start Date', id: 'input1', required: true %>
+    <%= f.text_field :end_date, placeholder: 'Start Date', id: 'input2', required: true %>
+    <%= f.text_field :visitor_count, placeholder: 'How Many Visitors?' %>
+    <%= f.text_field :note, placeholder: 'Note' %>
+
+    <div class="field">
+      <%= f.submit 'Submit', class: 'button button-blue' %>
+    </div>
+  <% end %>
+</div>

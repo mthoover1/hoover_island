@@ -16,4 +16,7 @@ HooverIsland::Application.routes.draw do
 
   # People
   resources :people, only: [:index, :show, :edit, :update]
+
+  # Reservation Requests
+  resources :reservation_requests
 end

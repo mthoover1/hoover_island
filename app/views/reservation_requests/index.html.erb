@@ -1,0 +1,9 @@
+<div class="content page-container green-background">
+  <div class="page-title">Reservation Requests</div>
+
+  <ul>
+    <% @requests.each do |request| %>
+      <li><%= request.person.full_name %> on <%= request.start_date %></li>
+    <% end %>
+  </ul>
+</div>
