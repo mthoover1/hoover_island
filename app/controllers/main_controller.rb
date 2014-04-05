@@ -14,6 +14,8 @@ class MainController < ApplicationController
   end
 
   def calendar
+     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+
   end
 
   def weather
