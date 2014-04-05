@@ -4,6 +4,7 @@ class Person < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name, :seniority
   validates_uniqueness_of :first_name, scope: [:last_name, :initials]
+  validates :initials, length: {minimum: 2, maximum: 4}, allow_blank: true
 
   has_secure_password
 
