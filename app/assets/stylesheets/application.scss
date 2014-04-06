@@ -241,7 +241,7 @@ a {
   :-ms-input-placeholder { font-size: 14px; } /* ie */
   input:-moz-placeholder { font-size: 14px; }
 }
-.alert {
+.login-alert {
   font-weight: 700;
   color: $orange;
   margin-bottom: 6px;
@@ -509,56 +509,127 @@ a {
 ======================================================= */
 
 #datepicker {
-  width: 400px;
+  width: 404px;
   margin: 0 auto 10px auto;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
   .ui-datepicker {
-    background-color: white;
     padding: 20px;
-    width: 400px;
-    color: $darkgray;
+    border: 2px inset;
     border-radius: 5px;
+    background-color: #FFF;
     font-weight: 700;
+    text-align: center;
     .ui-datepicker-title {
-      text-align: center;
       font-size: 24px;
       color: $darkblue;
+      margin-bottom: 16px;
+    }
+    .ui-datepicker-prev, .ui-datepicker-next {
+      cursor: pointer;
+      color: $gray;
+      font-size: 14px;
+    }
+    .ui-datepicker-prev {
+      float: left;
+    }
+    .ui-datepicker-next {
+      float: right;
     }
     th {
       font-size: 18px;
       color: $green;
+      padding-bottom: 5px;
     }
     td {
-      height: 30px;
+      height: 34px;
       width: 300px;
-      border: 1px solid gray;
+      border: 1px solid #999;
       color: $darkblue;
       font-size: 20px;
-      text-align: center;
       vertical-align: middle;
+      cursor: pointer;
       a {
         color: $darkblue;
       }
     }
     .dp-highlight {
       background: $lightorange;
-      color: white;
+      a {
+        color: #FFF;
+        text-shadow: $darkblue -2px 1px;
+      }
     }
     .ui-state-default, .ui-state-disabled {
       background: none;
-      // padding: 0;
       border: none;
-      height: 30px;
     }
     .ui-state-disabled.ui-datepicker-unselectable {
-      height: 30px;
-      // border: 1px solid red;
-      color: $green;
-      padding: 0;
+      height: 34px;
+      cursor: default;
+      span {
+        color: #D5D5D5;
+        font-weight: 400;
+      }
+    }
+    .ui-datepicker-prev.ui-corner-all.ui-state-disabled {
+      color: #D5D5D5;
+      cursor: default;
+    }
+    td.ui-datepicker-other-month {
+      cursor: default;
     }
   }
 }
-.field .request-three {
-  width: 32%;
+.reservation-for {
+  text-align: center;
+  margin-bottom: 6px;
+  font-weight: 300;
+}
+.field.thirds {
+  text-align: center;
+  margin-bottom: 3px;
+}
+.field .request-third {
+  width: 32.5%;
   text-align: center;
 }
-
+.field .request-third.left-third {
+  float: left;
+}
+.field .request-third.middle-third {
+  display: inline-block;
+}
+.field .request-third.right-third {
+  float: right;
+}
+.field .request-button {
+  margin-top: 14px;
+  margin-bottom: 40px;
+}
+.request-date {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.request-date:hover {
+  cursor: not-allowed;
+}
+.request-alert {
+  width: 70%;
+  margin: 0 auto 10px auto;
+  border-radius: 5px;
+  padding: 4px;
+  border: 2px solid $orange;
+  background-color: $lightorange;
+  font-size: 18px;
+  text-align: center;
+}

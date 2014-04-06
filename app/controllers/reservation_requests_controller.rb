@@ -17,7 +17,7 @@ class ReservationRequestsController < ApplicationController
       flash[:notice] = 'Reservation request submitted'
       redirect_to calendar_path
     else
-      flash[:alert] = 'Invalid submission'
+      flash[:alert] = reservation_request.errors.full_messages.to_sentence
       redirect_to new_reservation_request_path
     end
   end
@@ -25,10 +25,16 @@ class ReservationRequestsController < ApplicationController
   private
 
   def format_param_dates
+    return if !dates_present?
+
     formatted_start_date = Date.strptime(params[:reservation_request][:start_date], "%m/%d/%Y")
     formatted_end_date = Date.strptime(params[:reservation_request][:end_date], "%m/%d/%Y")
 
     params[:reservation_request][:start_date] = formatted_start_date
     params[:reservation_request][:end_date] = formatted_end_date
+  end
+
+  def dates_present?
+    params[:reservation_request][:start_date].present? && params[:reservation_request][:end_date].present?
   end
 end
