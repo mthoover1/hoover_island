@@ -1,5 +1,5 @@
-<div class="content page-container">
-  <div class="page-title">Calendar</div>
+<div class="content page-container green-background">
+  <div class="page-title">The Island Calendar</div>
 
   <%= link_to 'Request a Reservation', new_reservation_request_path %>
 
@@ -11,6 +11,22 @@
     </h2>
     <%= calendar @date do |date| %>
       <%= date.day %>
+      <ul>
+        <% @reservation_requests.each do |request|%>
+          <% if request[:start_date] <= date && request[:end_date] >= date %>
+            <div id='trip' style= >
+              <% if request[:start_date] == date %>
+                <li id='start_date'><%= link_to request.person.full_name %></li>
+              <% elsif request[:end_date] == date %>
+                  <li id='end_date'><%= link_to request.person.full_name %></li>
+                <% else %>
+                <li><%= "- " %></li>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </ul>
+
     <% end %>
   </div>
 </div>

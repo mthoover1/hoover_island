@@ -462,9 +462,25 @@ a {
   td {
     background: #FFF;
     color: #777;
-    height: 80px;
+    height: 100px;
     vertical-align: top;
     font-size: 16px;
+
+    #trip {
+      background-color: pink;
+      margin-right: -7px;
+      margin-left: -7px;
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
+      vertical-align: center;
+
+    #start_date{
+      border-left: 3px solid black;
+    }
+    #end_date{
+      border-right: 3px solid black;
+    }
+    }
   }
 
   .notmonth, .notmonth a { color: #CCC; }
@@ -473,17 +489,19 @@ a {
 
 #calendar #month {
   margin: 0;
-  padding-bottom: 10px;
-  text-align: center;
-  font-size: 22px;
+  padding-bottom: 30px;
+  // text-align: center;
+  font-size: 32px;
   a {
     text-decoration: none;
     padding: 0 10px;
     color: #999;
   }
+
+}
+#calendar ul{
+  font-size: 11px;
+  // vertical-align: center;
+  // padding-left: 20px;
 }
 
-#calendar ul {
-  font-size: 11px;
-  padding-left: 20px;
-}
