@@ -1,5 +1,5 @@
 /*
- *= require jquery.ui.datepicker
+
  *= require_self
  *= require_tree .
  */
@@ -486,4 +486,61 @@ a {
 #calendar ul {
   font-size: 11px;
   padding-left: 20px;
+}
+
+/* New Reservation Request
+======================================================= */
+
+#datepicker {
+  width: 400px;
+  margin: 0 auto 10px auto;
+  .ui-datepicker {
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    color: $darkgray;
+    border-radius: 5px;
+    font-weight: 700;
+    .ui-datepicker-title {
+      text-align: center;
+      font-size: 24px;
+      color: $darkblue;
+    }
+    th {
+      font-size: 18px;
+      color: $green;
+    }
+    td {
+      height: 30px;
+      width: 300px;
+      border: 1px solid gray;
+      color: $darkblue;
+      font-size: 20px;
+      text-align: center;
+      vertical-align: middle;
+      a {
+        color: $darkblue;
+      }
+    }
+    .dp-highlight {
+      background: $lightorange;
+      color: white;
+    }
+    .ui-state-default, .ui-state-disabled {
+      background: none;
+      // padding: 0;
+      border: none;
+      height: 30px;
+    }
+    .ui-state-disabled.ui-datepicker-unselectable {
+      height: 30px;
+      // border: 1px solid red;
+      color: $green;
+      padding: 0;
+    }
+  }
+}
+.field .request-three {
+  width: 32%;
+  text-align: center;
 }
