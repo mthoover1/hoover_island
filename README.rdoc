@@ -10,6 +10,11 @@ Calendar planner, info, rules/regulations, weather center.
 - in that file, put:
  FORECAST_IO_KEY: '(your key here)'
 
+=== Email Setup
+- in that same +local_env.yml+ file put:
+ GMAIL_USERNAME: '(site gmail username here)'
+ GMAIL_PASSWORD: '(site gmail password here)'
+
 === Creating Users
 Bcrypt requires :password and :password_confirmation.  Make them identical strings.
 

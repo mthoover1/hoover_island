@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     person = Person.find_by_email(params[:session][:email])
 
     if person
-      # send password reset email
+      PersonMailer.forgot_password(person).deliver
       redirect_to login_url, alert: "Password reset email sent"
     else
       redirect_to forgot_password_url, alert: "Email address not found"
