@@ -1,6 +1,7 @@
 <div class="content page-container">
   <div class="page-title">Island Weather Center</div>
 
+  <% if @weather.forecast %>
   <div class="today">
     <div class="today-header">Current Conditions</div>
     <div class="temp"><%= @weather.current_temp %>&deg</div>
@@ -53,5 +54,9 @@
         <div class="forecast-cell summary"><%= @weather.forecast_summary(day) %></div>
       </div>
     </div>
+  <% end %>
+
+  <% else %>
+    <div class="today">No Data Received from Weather Provider</div>
   <% end %>
 </div>
