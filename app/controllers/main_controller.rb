@@ -15,7 +15,7 @@ class MainController < ApplicationController
 
   def calendar
     if params['date']
-      date = params['data'].to_date
+      date = params['date'].to_date
     else
       date = Date.today
     end

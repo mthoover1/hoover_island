@@ -15,7 +15,7 @@
       <ul>
         <% @reservation_requests.each do |request|%>
           <% if request[:start_date] <= date && request[:end_date] >= date %>
-            <div id='trip' style= >
+            <div id='trip'>
               <% if request[:start_date] == date %>
                 <li id='start_date'><%= link_to request.person.full_name %></li>
               <% elsif request[:end_date] == date %>
