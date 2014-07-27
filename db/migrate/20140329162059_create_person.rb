@@ -5,8 +5,8 @@ class CreatePerson < ActiveRecord::Migration
       t.string  :last_name
       t.string  :initials
       t.integer :seniority, default: 10
-      t.string  :email
-      t.string  :password_digest
+      t.boolean :hoover, default: false
+      t.integer :spouse_id
     end
   end
 end
