@@ -14,8 +14,13 @@ class MainController < ApplicationController
   end
 
   def calendar
-     @reservation_requests = ReservationRequest.all
-     @date = params['date'].to_date || Date.today
+    if params['date']
+      date = params['data'].to_date
+    else
+      date = Date.today
+    end
+    @reservation_requests = ReservationRequest.all
+    @date = date
 
   end
 
