@@ -11,18 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405203324) do
+ActiveRecord::Schema.define(version: 20140727200915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: true do |t|
+    t.integer "person_id"
+    t.string  "email"
+    t.string  "password_digest"
+  end
+
+  create_table "animal_sitings", force: true do |t|
+    t.string   "name"
+    t.decimal  "lat",        precision: 10, scale: 7
+    t.decimal  "long",       precision: 10, scale: 7
+    t.integer  "trip_id"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fishing_spots", force: true do |t|
+    t.string   "size"
+    t.string   "type_of_fish"
+    t.decimal  "lat",          precision: 10, scale: 7
+    t.decimal  "long",         precision: 10, scale: 7
+    t.string   "type_of_day"
+    t.integer  "trip_id"
+    t.string   "lure"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "people", force: true do |t|
     t.string  "first_name"
     t.string  "last_name"
     t.string  "initials"
-    t.integer "seniority",       default: 10
-    t.string  "email"
-    t.string  "password_digest"
+    t.integer "seniority",  default: 10
+    t.boolean "hoover",     default: false
+    t.integer "spouse_id"
   end
 
   create_table "person_trips", force: true do |t|
