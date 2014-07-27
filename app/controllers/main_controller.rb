@@ -15,8 +15,8 @@ class MainController < ApplicationController
 
   def calendar
      @reservation_requests = ReservationRequest.all
-     # @reservation_requests = @reservation_requests.order(&:start_date)
-     @date = Date.today
+     @date = params['date'].to_date || Date.today
+
   end
 
   def weather

@@ -2,7 +2,8 @@
   <div class="page-title">The Island Calendar</div>
 
   <%= link_to 'Request a Reservation', new_reservation_request_path %>
-
+  <br>
+  <%= link_to "Jump to Today", date: Date.today %>
   <div id="calendar">
     <h2 id="month">
       <%= link_to "<", date: @date.prev_month %>
