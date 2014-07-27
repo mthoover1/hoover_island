@@ -66,10 +66,15 @@ ActiveRecord::Schema.define(version: 20140727200915) do
     t.date    "end_date"
     t.integer "visitor_count"
     t.string  "note"
+    t.boolean "trip_approved", default: false
   end
 
   create_table "trips", force: true do |t|
     t.integer "year"
+    t.string  "notes"
+    t.integer "fishing_spot_id"
+    t.integer "animal_siting_id"
+    t.integer "reservation_request_id"
   end
 
 end

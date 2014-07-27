@@ -1,5 +1,6 @@
 class ReservationRequest < ActiveRecord::Base
   belongs_to :person
+  belongs_to :trip
 
   validates_presence_of :person_id, :start_date, :end_date
   validate :end_date_after_start_date, :trip_duration
