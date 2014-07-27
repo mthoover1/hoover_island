@@ -1,0 +1,32 @@
+<div class="content page-container green-background">
+  <div class="page-title">Admin Dashboard</div>
+
+  <table id='request-management'>
+    <tr>
+      <th>Owner</th>
+      <th>Seniority</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.person.full_name %></td>
+        <td><%= request.person.seniority %></td>
+        <td><%= request.start_date.strftime("%-m/%-d/%y - %a") %></td>
+        <td><%= request.end_date.strftime("%-m/%-d/%y - %a") %></td>
+        <td><%= request.status %></td>
+        <td>
+          <%= link_to (fa_icon 'thumbs-up flip-horizontal admin-control'), accept_request_path(id: request.id), method: :post %>
+          <%= link_to (fa_icon 'exclamation-triangle admin-control'), flag_request_path(id: request.id), method: :post %>
+          <%= link_to (fa_icon 'thumbs-down admin-control'), deny_request_path(id: request.id), method: :post %>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+
+</div>

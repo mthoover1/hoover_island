@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727200915) do
+ActiveRecord::Schema.define(version: 20140727213127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140727200915) do
     t.integer "person_id"
     t.string  "email"
     t.string  "password_digest"
+    t.boolean "admin",           default: false
   end
 
   create_table "animal_sitings", force: true do |t|
@@ -66,10 +67,19 @@ ActiveRecord::Schema.define(version: 20140727200915) do
     t.date    "end_date"
     t.integer "visitor_count"
     t.string  "note"
+    t.boolean "trip_approved",         default: false
+    t.integer "reservation_status_id"
+  end
+
+  create_table "reservation_statuses", force: true do |t|
+    t.string "status"
   end
 
   create_table "trips", force: true do |t|
     t.integer "year"
+    t.string  "notes"
+    t.integer "fishing_spot_id"
+    t.integer "animal_siting_id"
   end
 
 end

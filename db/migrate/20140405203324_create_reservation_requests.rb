@@ -6,6 +6,8 @@ class CreateReservationRequests < ActiveRecord::Migration
       t.date    :end_date
       t.integer :visitor_count
       t.string  :note
+      t.boolean :trip_approved, default: false
+      t.integer :reservation_status_id
     end
   end
 end

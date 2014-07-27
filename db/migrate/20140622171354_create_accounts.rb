@@ -4,6 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer :person_id
       t.string  :email
       t.string  :password_digest
+      t.boolean :admin, default: false
     end
   end
 end
