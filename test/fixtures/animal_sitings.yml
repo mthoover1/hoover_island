@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  lat: 
+  long: 
+  trip_id: 
+  notes: MyString
+
+two:
+  name: 
+  lat: 
+  long: 
+  trip_id: 
+  notes: MyString
