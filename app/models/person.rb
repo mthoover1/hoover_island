@@ -3,6 +3,8 @@ class Person < ActiveRecord::Base
   has_many   :trips, through: :person_trips
   has_one    :account
   belongs_to :spouse, foreign_key: :spouse_id, primary_key: :id, class_name: "Person"
+  belongs_to :parent, foreign_key: :parent_id, primary_key: :id, class_name: "Person"
+  has_many   :children, class_name: 'Person', foreign_key: :parent_id
 
   validates_presence_of :first_name, :last_name, :seniority
   validates_uniqueness_of :first_name, scope: [:last_name, :initials]

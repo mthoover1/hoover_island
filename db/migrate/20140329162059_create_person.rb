@@ -7,6 +7,7 @@ class CreatePerson < ActiveRecord::Migration
       t.integer :seniority, default: 10
       t.boolean :hoover, default: false
       t.integer :spouse_id
+      t.integer :parent_id
     end
   end
 end
