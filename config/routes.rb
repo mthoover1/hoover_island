@@ -13,6 +13,7 @@ HooverIsland::Application.routes.draw do
   get '/history',  to: 'main#history'
   get '/calendar', to: 'main#calendar'
   get '/weather',  to: 'main#weather'
+  get '/trips',    to: 'main#trips'
 
 
   # People

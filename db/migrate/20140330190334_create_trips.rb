@@ -5,6 +5,7 @@ class CreateTrips < ActiveRecord::Migration
       t.string :notes
       t.integer :fishing_spot_id
       t.integer :animal_siting_id
+      t.integer :reservation_request_id
     end
   end
 end
