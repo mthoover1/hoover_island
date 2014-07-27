@@ -1,7 +1,7 @@
 /*
-
  *= require_self
  *= require_tree .
+ *= require font-awesome
  */
 
 /* Border Box Sizing
@@ -151,7 +151,7 @@ a {
 }
 .nav-link {
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   padding-right: 20px;
 }
 
@@ -632,4 +632,32 @@ a {
   background-color: $lightorange;
   font-size: 18px;
   text-align: center;
+}
+
+
+/* Admin Dashboard
+======================================================= */
+
+#request-management {
+  text-align: left;
+  background-color: lightgray;
+  color: black;
+  tr {
+    border-bottom: 2px solid #000;
+  }
+  th {
+    font-weight: 700;
+  }
+  td {
+    padding: 4px 30px 4px 0px;
+  }
+  .fa-thumbs-up:hover {
+    color: green;
+  }
+  .fa-thumbs-down:hover {
+    color: red;
+  }
+  .fa-exclamation-triangle:hover {
+    color: yellow;
+  }
 }

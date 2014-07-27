@@ -7,6 +7,9 @@ gem 'rails', '4.0.3'
 # Weather gem
 gem 'forecast_io'
 
+# Font awesome
+gem "font-awesome-rails"
+
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 

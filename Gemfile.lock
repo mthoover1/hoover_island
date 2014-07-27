@@ -42,6 +42,8 @@ GEM
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     forecast_io (2.0.0)
       faraday
       hashie
@@ -127,6 +129,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   coffee-rails (~> 4.0.0)
+  font-awesome-rails
   forecast_io
   jbuilder (~> 1.2)
   jquery-rails

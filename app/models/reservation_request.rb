@@ -1,8 +1,15 @@
 class ReservationRequest < ActiveRecord::Base
   belongs_to :person
+  belongs_to :reservation_status
 
   validates_presence_of :person_id, :start_date, :end_date
   validate :end_date_after_start_date, :trip_duration
+
+  before_create :set_as_pending
+
+  def status
+    reservation_status.status
+  end
 
   private
 
@@ -22,5 +29,10 @@ class ReservationRequest < ActiveRecord::Base
 
   def dates_present?
     start_date && end_date
+  end
+
+  def set_as_pending
+    pending_status = ReservationStatus.find_by_status('Pending')
+    self.reservation_status_id = pending_status.id
   end
 end
