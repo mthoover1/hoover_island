@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   has_many   :person_trips
   has_many   :trips, through: :person_trips
+  has_many   :reservation_requests
   has_one    :account
   belongs_to :spouse, foreign_key: :spouse_id, primary_key: :id, class_name: "Person"
 
