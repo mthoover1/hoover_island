@@ -4,9 +4,7 @@
   - if @weather.forecast
     .today
       .today-header Current Conditions
-      .temp
-        = @weather.current_temp
-        | &deg
+      .temp = @weather.current_temp
       .details
         div = @weather.current_summary
         div
@@ -29,19 +27,13 @@
       .day-container
         .forecast-day
           .forecast-cell.day = @weather.forecast_day_of_week(day)
-          .forecast-cell.high
-            = @weather.forecast_high_temp(day)
-            | &deg
-          .forecast-cell.low
-            = @weather.forecast_low_temp(day)
-            | &deg
+          .forecast-cell.high = @weather.forecast_high_temp(day)
+          .forecast-cell.low = @weather.forecast_low_temp(day)
           .forecast-cell.precip
             .precip-text
               ' Chance of
               = @weather.forecast_precip_type(day)
-            .precip-chance
-              = @weather.forecast_precip_probability(day)
-              | %
+            .precip-chance = @weather.forecast_precip_probability(day)
           .forecast-cell.sun
             table
               tr

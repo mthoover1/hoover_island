@@ -7,7 +7,7 @@ class WeatherPresenter
   end
 
   def current_temp
-    @forecast.currently.temperature.round
+    "#{@forecast.currently.temperature.round}°"
   end
 
   def current_summary
@@ -23,11 +23,11 @@ class WeatherPresenter
   end
 
   def forecast_high_temp(day)
-    @forecast.daily.data[day].temperatureMax.round
+    "#{@forecast.daily.data[day].temperatureMax.round}°"
   end
 
   def forecast_low_temp(day)
-    @forecast.daily.data[day].temperatureMin.round
+    "#{@forecast.daily.data[day].temperatureMin.round}°"
   end
 
   def forecast_day_of_week(day)
@@ -44,15 +44,12 @@ class WeatherPresenter
   end
 
   def forecast_precip_type(day)
-    if @forecast.daily.data[day].precipType.present?
-      @forecast.daily.data[day].precipType.capitalize
-    else
-      "Precip."
-    end
+    precip_type = @forecast.daily.data[day].precipType
+    precip_type.present? ? precip_type.capitalize : "Precip."
   end
 
   def forecast_precip_probability(day)
-    (@forecast.daily.data[day].precipProbability * 100).round
+    "#{(@forecast.daily.data[day].precipProbability * 100).round}%"
   end
 
   def forecast_summary(day)
@@ -69,19 +66,19 @@ class WeatherPresenter
     case
     when bearing > 337 || bearing <= 22
       "N"
-    when bearing > 22 && bearing <= 67
+    when bearing.between?(23, 67)
       "NE"
-    when bearing > 67 && bearing <= 112
+    when bearing.between?(68, 112)
       "E"
-    when bearing > 112 && bearing <= 157
+    when bearing.between?(113, 157)
       "SE"
-    when bearing > 157 && bearing <= 202
+    when bearing.between?(158, 202)
       "S"
-    when bearing > 202 && bearing <= 247
+    when bearing.between?(203, 247)
       "SW"
-    when bearing > 247 && bearing <= 292
+    when bearing.between?(248, 292)
       "W"
-    when bearing > 292 && bearing <= 337
+    when bearing.between?(293, 337)
       "NW"
     end
   end
