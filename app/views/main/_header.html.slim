@@ -1,0 +1,14 @@
+.header-wrapper
+  .content
+    .logo = link_to image_tag('island_outline.jpg'), root_url
+    .site-title = link_to 'Hoover Island', root_url
+    .nav-link = link_to 'Calendar', calendar_url
+    .nav-link = link_to 'History', history_url
+    .nav-link = link_to 'People', people_path
+    .nav-link Info
+    .nav-link Regulations
+    .nav-link = link_to 'Weather', weather_url
+    .nav-link = link_to 'Finances', finances_url
+    - if current_user.account.admin
+      .nav-link = link_to 'Admin', admin_url
+    .nav-link = link_to "Logout-#{current_user.initials}", logout_path, method: :delete

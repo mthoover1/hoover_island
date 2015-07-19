@@ -1,0 +1,14 @@
+.home-wrapper
+  .background
+    .content
+      .text-box
+        span.days-left
+          = @days_left
+        | &nbsp;
+        = @days_left_message
+
+  .content.home
+    | Hi&nbsp;
+    = current_user.first_name
+    br
+    | Some information goes down heree
