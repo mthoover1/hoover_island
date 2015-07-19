@@ -1,6 +1,8 @@
 require 'mechanize'
 
 class WaterLevelFetcher
+  STATION_ID = '05PB024'
+
   def current_water_level
     meters_to_feet(water_level_in_meters)
   end
@@ -16,17 +18,10 @@ class WaterLevelFetcher
   end
 
   def water_office_url
-    yesterday = 1.day.ago
-    tomorrow = 1.day.from_now
+    yesterday = Date.yesterday.strftime("%Y-%m-%d")
+    today = Date.today.strftime("%Y-%m-%d")
 
-    yesterday_year  = yesterday.strftime("%Y")
-    yesterday_month = yesterday.strftime("%m")
-    yesterday_day   = yesterday.strftime("%d")
-    tomorrow_year  = tomorrow.strftime("%Y")
-    tomorrow_month = tomorrow.strftime("%m")
-    tomorrow_day   = tomorrow.strftime("%d")
-
-    "http://www.wateroffice.ec.gc.ca/graph/graph_e.html?mode=text&stn=05PB024&prm1=3&prm2=-1&syr=#{yesterday_year}&smo=#{yesterday_month}&sday=#{yesterday_day}&eyr=#{tomorrow_year}&emo=#{tomorrow_month}&eday=#{tomorrow_day}"
+    "http://wateroffice.ec.gc.ca/report/report_e.html?mode=Table&type=realTime&stn=#{STATION_ID}&dataType=&startDate=#{yesterday}&endDate=#{today}&prm1=46&prm2=47"
   end
 
   def most_recent_data_string
@@ -37,7 +32,7 @@ class WaterLevelFetcher
       button = form.button_with(:value => "I Agree")
       data_page = agent.submit(form, button)
 
-      return data_page.search('td.bold').last.text
+      return data_page.search('table:first tr:last td:last').first.text
     end
   end
 end
