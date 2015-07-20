@@ -2,13 +2,11 @@
   .background
     .content
       .text-box
-        span.days-left
-          = @days_left
-        | &nbsp;
-        = @days_left_message
+        span.days-left = @days_left
+        =< @days_left_message
 
   .content.home
-    | Hi&nbsp;
+    ' Hi
     = current_user.first_name
     br
-    | Some information goes down heree
+    | Some information goes down here
