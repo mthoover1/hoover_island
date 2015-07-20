@@ -1,4 +1,6 @@
 require 'weather_presenter'
+require 'average_water_level_calculator'
+require 'water_level_fetcher'
 
 class MainController < ApplicationController
   before_filter :check_session
@@ -26,6 +28,15 @@ class MainController < ApplicationController
 
   def weather
     @weather = WeatherPresenter.new
+
+    water_level = WaterLevel.where('created_at >= ?', Date.today).last
+
+    if water_level.nil?
+      current_water_level = WaterLevelFetcher.new.current_water_level
+      water_level = WaterLevel.create(level: current_water_level)
+    end
+
+    @water_level_presenter = WaterLevelPresenter.new(water_level.level)
   end
 
   private

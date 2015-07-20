@@ -1,6 +1,18 @@
 .content.page-container
   .page-title Island Weather Center
 
+  .water-level
+    .water-level-header Water Level
+    - if @water_level_presenter.alert?
+      => fa_icon 'warning'
+      => @water_level_presenter.high_or_low.upcase
+      ' WATER LEVEL ALERT:
+    - else
+      ' Normal Water Level:
+
+    => @water_level_presenter.feet_and_inches
+    = @water_level_presenter.high_or_low
+
   - if @weather.forecast
     .today
       .today-header Current Conditions

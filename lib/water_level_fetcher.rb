@@ -4,14 +4,10 @@ class WaterLevelFetcher
   STATION_ID = '05PB024'
 
   def current_water_level
-    meters_to_feet(water_level_in_meters)
+    UnitService.meters_to_feet(water_level_in_meters)
   end
 
   private
-
-  def meters_to_feet(meters)
-    meters * 3.28083989501
-  end
 
   def water_level_in_meters
     most_recent_data_string.chomp('*').to_f

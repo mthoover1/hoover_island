@@ -300,6 +300,18 @@ a {
 /* Weather Center
 ======================================================= */
 
+.water-level {
+  background-color: lightgray;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 25px;
+}
+.water-level-header {
+  font-weight: 700;
+  font-size: 22px;
+  color: $darkblue;
+  margin-bottom: 6px;
+}
 .today {
   background-color: lightgray;
   border-radius: 3px;
