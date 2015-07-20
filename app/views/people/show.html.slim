@@ -1,0 +1,16 @@
+.content.page-container.green-background
+  .page-title = @person.full_name
+
+  div
+    ' Visited the Island
+    => @person.trip_count
+    | times.
+
+  - @person.trips.order(:year).each do |trip|
+    div = trip.year
+
+    - trip.people.each do |person|
+      - next if person == @person
+      div
+        ' ...
+        = link_to person.full_name, person_path(person)

@@ -1,0 +1,22 @@
+.content.page-container
+  .page-title History
+
+  p short story about purchase of island
+  p photo of nanny and pops
+  p visitor history
+
+- @years.each.with_index(1) do |year, i|
+  .year class="#{i.odd? ? 'odd' : 'even'}"
+    .content
+      .year-title = year
+      - @trips.select{|trip| trip.year == year}.each do |trip|
+        .trip
+          - trip.people.order(:seniority, :first_name).each do |person|
+            .person = link_to person.full_name, person_path(person)
+
+.content
+  ol
+    - @leaderboard.each do |person|
+      li
+        => person.full_name
+        = person.trip_count
