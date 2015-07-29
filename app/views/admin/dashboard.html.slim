@@ -1,0 +1,23 @@
+.content.page-container.green-background
+  .page-title Admin Dashboard
+
+  table#request-management
+    tr
+      th Owner
+      th Seniority
+      th Start
+      th End
+      th Status
+      th
+      th
+    - @requests.each do |request|
+      tr
+        td = request.person.full_name
+        td = request.person.seniority
+        td = request.start_date.strftime("%-m/%-d/%y - %a")
+        td = request.end_date.strftime("%-m/%-d/%y - %a")
+        td = request.status
+        td
+          = link_to (fa_icon 'thumbs-up flip-horizontal admin-control'), accept_request_path(id: request.id), method: :post
+          = link_to (fa_icon 'exclamation-triangle admin-control'), flag_request_path(id: request.id), method: :post
+          = link_to (fa_icon 'thumbs-down admin-control'), deny_request_path(id: request.id), method: :post
