@@ -27,7 +27,9 @@ class MainController < ApplicationController
   end
 
   def weather
-    @weather = WeatherPresenter.new
+    @weather = Rails.cache.fetch('weather_presenter', expires_in: 3.minutes) do
+      WeatherPresenter.new
+    end
 
     water_level = WaterLevel.where('created_at >= ?', Date.today).last
 
