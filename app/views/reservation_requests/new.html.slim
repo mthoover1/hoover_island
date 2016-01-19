@@ -1,0 +1,27 @@
+.content.page-container.green-background
+  .page-title Request a Reservation
+
+  - if flash[:alert]
+    .request-alert = flash[:alert]
+
+  #datepicker
+
+  .reservation-for
+    | Reservation for
+    =< current_user.full_name
+
+    = form_for @reservation_request do |f|
+      = f.hidden_field :person_id, value: current_user.id
+
+      .field.thirds
+        = f.text_field :start_date, placeholder: 'Start Date', id: 'input1', readonly: true, required: true,  class: 'request-third left-third request-date'
+        = f.text_field :end_date, placeholder: 'End Date', id: 'input2', readonly: true, required: true,  class: 'request-third middle-third request-date'
+        = f.text_field :visitor_count, placeholder: 'Visitor Count (Opt.)', class: 'request-third right-third'
+
+      .field
+        = f.text_field :note, placeholder: 'Note (Optional)'
+
+      .field
+        = f.submit 'Submit', class: 'button button-blue request-button', id: 'submit-new-request'
+
+= javascript_include_tag 'new_reservation_request'
