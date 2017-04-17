@@ -23,7 +23,6 @@ class MainController < ApplicationController
     end
     @reservation_requests = ReservationRequest.all
     @date = date
-
   end
 
   def weather
@@ -31,14 +30,11 @@ class MainController < ApplicationController
       WeatherPresenter.new
     end
 
-    water_level = WaterLevel.where('created_at >= ?', Date.today).last
-
-    if water_level.nil?
-      current_water_level = WaterLevelFetcher.new.current_water_level
-      water_level = WaterLevel.create(level: current_water_level)
+    water_level = Rails.cache.fetch('water_level', expires_in: 12.hours) do
+      WaterLevelFetcher.new.current_water_level
     end
 
-    @water_level_presenter = WaterLevelPresenter.new(water_level.level)
+    @water_level_presenter = WaterLevelPresenter.new(water_level)
   end
 
   private

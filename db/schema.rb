@@ -11,80 +11,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805233818) do
+ActiveRecord::Schema.define(version: 20170417031545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accounts", force: true do |t|
+  create_table "accounts", force: :cascade do |t|
     t.integer "person_id"
-    t.string  "email"
-    t.string  "password_digest"
-    t.boolean "admin",           default: false
+    t.string  "email",           limit: 255
+    t.string  "password_digest", limit: 255
+    t.boolean "admin",                       default: false
   end
 
-  create_table "animal_sitings", force: true do |t|
-    t.string   "name"
-    t.decimal  "lat",        precision: 10, scale: 7
-    t.decimal  "long",       precision: 10, scale: 7
+  create_table "animal_sitings", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.decimal  "lat",                    precision: 10, scale: 7
+    t.decimal  "long",                   precision: 10, scale: 7
     t.integer  "trip_id"
-    t.string   "notes"
+    t.string   "notes",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "fishing_spots", force: true do |t|
-    t.string   "size"
-    t.string   "type_of_fish"
-    t.decimal  "lat",          precision: 10, scale: 7
-    t.decimal  "long",         precision: 10, scale: 7
-    t.string   "type_of_day"
+  create_table "fishing_spots", force: :cascade do |t|
+    t.string   "size",         limit: 255
+    t.string   "type_of_fish", limit: 255
+    t.decimal  "lat",                      precision: 10, scale: 7
+    t.decimal  "long",                     precision: 10, scale: 7
+    t.string   "type_of_day",  limit: 255
     t.integer  "trip_id"
-    t.string   "lure"
-    t.string   "notes"
+    t.string   "lure",         limit: 255
+    t.string   "notes",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "people", force: true do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "initials"
-    t.integer "seniority",  default: 10
-    t.boolean "hoover",     default: false
+  create_table "people", force: :cascade do |t|
+    t.string  "first_name", limit: 255
+    t.string  "last_name",  limit: 255
+    t.string  "initials",   limit: 255
+    t.integer "seniority",              default: 10
+    t.boolean "hoover",                 default: false
     t.integer "spouse_id"
     t.integer "parent_id"
   end
 
-  create_table "person_trips", force: true do |t|
+  create_table "person_trips", force: :cascade do |t|
     t.integer "trip_id"
     t.integer "person_id"
   end
 
-  create_table "reservation_requests", force: true do |t|
+  create_table "reservation_requests", force: :cascade do |t|
     t.integer "person_id"
     t.date    "start_date"
     t.date    "end_date"
     t.integer "visitor_count"
-    t.string  "note"
-    t.boolean "trip_approved",         default: false
+    t.string  "note",                  limit: 255
+    t.boolean "trip_approved",                     default: false
     t.integer "reservation_status_id"
   end
 
-  create_table "reservation_statuses", force: true do |t|
-    t.string "status"
+  create_table "reservation_statuses", force: :cascade do |t|
+    t.string "status", limit: 255
   end
 
-  create_table "trips", force: true do |t|
+  create_table "trips", force: :cascade do |t|
     t.integer "year"
-    t.string  "notes"
+    t.string  "notes",            limit: 255
     t.integer "fishing_spot_id"
     t.integer "animal_siting_id"
-  end
-
-  create_table "water_levels", force: true do |t|
-    t.decimal  "level",      precision: 8, scale: 3
-    t.datetime "created_at"
   end
 
 end
