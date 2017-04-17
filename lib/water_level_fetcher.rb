@@ -1,5 +1,3 @@
-require 'mechanize'
-
 class WaterLevelFetcher
   URL = 'http://wateroffice.ec.gc.ca/report/real_time_e.html?stn=05PB024&mode=Table'
 
@@ -10,18 +8,20 @@ class WaterLevelFetcher
   private
 
   def water_level_in_meters
-    most_recent_data_string.chomp('*').to_f
+    water_level_string.to_f
   end
 
-  def most_recent_data_string
-    agent = Mechanize.new
+  def water_level_string
+    page = Nokogiri::HTML(water_office_http_response)
+    page.css('table').first.css('tbody tr:last td:last').text
+  end
 
-    agent.get(URL) do |page|
-      form = agent.page.form_with(action: "/disclaimer_e.html")
-      button = form.button_with(value: "I Agree")
-      data_page = agent.submit(form, button)
-
-      return data_page.search('table:first tbody tr:last td:last').first.text
-    end
+  def water_office_http_response
+    uri = URI(URL)
+    http = Net::HTTP.new(uri.host, 80)
+    request = Net::HTTP::Get.new(uri.request_uri)
+    disclaimer_cookie = CGI::Cookie.new('disclaimer', 'agree')
+    request['Cookie'] = disclaimer_cookie.to_s
+    http.request(request).body
   end
 end

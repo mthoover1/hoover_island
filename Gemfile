@@ -13,7 +13,6 @@ gem 'forecast_io'
 gem 'font-awesome-rails'
 
 gem 'nokogiri'
-gem 'mechanize'
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
