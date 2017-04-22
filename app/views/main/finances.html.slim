@@ -2,3 +2,16 @@
   .page-title.finance-font
     => fa_icon 'bank'
     | Rainy Lake Trust
+
+  p In order to maintain the Island and boat, a trust has been established.
+
+  p Visitor Fee: $5 per person per night.
+
+  p Payment Options: Venmo to DKH, mail check to DKH.
+
+  .cost-calculator
+    .title Trip Cost Calculator
+    input.daily-cost type='hidden' value='5'
+    input.guests type='text' placeholder='Guests' onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+    input.nights type='text' placeholder='Nights' onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+    .cost-total

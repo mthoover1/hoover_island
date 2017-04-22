@@ -52,4 +52,18 @@ $(document).ready(function(){
     }
   );
 
+  $('.cost-calculator input').on('keyup', function() {
+    var guests = parseInt($('input.guests').val() || 0),
+        nights = parseInt($('input.nights').val() || 0),
+        dailyCost = parseInt($('input.daily-cost').val());
+
+    var total = guests * nights * dailyCost;
+
+    if (total > 0) {
+      $('.cost-total').html(`$${total}`);
+    } else {
+      $('.cost-total').html('');
+    }
+  });
+
 });
