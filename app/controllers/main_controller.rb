@@ -26,6 +26,9 @@ class MainController < ApplicationController
   end
 
   def weather
+  end
+
+  def weather_partial
     @weather = Rails.cache.fetch('weather_presenter', expires_in: 3.minutes) do
       WeatherPresenter.new
     end
@@ -35,6 +38,17 @@ class MainController < ApplicationController
     end
 
     @water_level_presenter = WaterLevelPresenter.new(water_level)
+
+    render partial: 'weather_partial'
+  end
+
+  def finances
+  end
+
+  def contacts
+  end
+
+  def visiting
   end
 
   private

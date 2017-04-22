@@ -1,0 +1,57 @@
+.water-level
+  .water-level-header Water Level
+  - if @water_level_presenter.alert?
+    => fa_icon 'warning'
+    => @water_level_presenter.high_or_low.upcase
+    ' WATER LEVEL ALERT:
+  - else
+    ' Normal Water Level:
+
+  => @water_level_presenter.feet_and_inches
+  = @water_level_presenter.high_or_low
+
+- if @weather.forecast
+  .today
+    .today-header Current Conditions
+    .temp = @weather.current_temp
+    .details
+      div = @weather.current_summary
+      div
+        ' Wind:
+        = @weather.current_wind
+      div = @weather.near_forecast_summary
+      table
+        tr
+          td Sunrise
+          td = @weather.forecast_sunrise(0)
+        tr
+          td Sunset
+          td = @weather.forecast_sunset(0)
+
+  .seven-day-container
+    .seven-day-header 7 Day Forecast Summary
+    .seven-day-summary = @weather.forecast.daily.summary
+
+  - (1..7).to_a.each do |day|
+    .day-container
+      .forecast-day
+        .forecast-cell.day = @weather.forecast_day_of_week(day)
+        .forecast-cell.high = @weather.forecast_high_temp(day)
+        .forecast-cell.low = @weather.forecast_low_temp(day)
+        .forecast-cell.precip
+          .precip-text
+            ' Chance of
+            = @weather.forecast_precip_type(day)
+          .precip-chance = @weather.forecast_precip_probability(day)
+        .forecast-cell.sun
+          table
+            tr
+              td.sun-type Sunrise
+              td.sun-time = @weather.forecast_sunrise(day)
+            tr
+              td.sun-type Sunset
+              td.sun-time = @weather.forecast_sunset(day)
+        .forecast-cell.summary = @weather.forecast_summary(day)
+
+- else
+  .today No Data Received from Weather Provider

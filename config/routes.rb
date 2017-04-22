@@ -11,8 +11,10 @@ HooverIsland::Application.routes.draw do
 
   # Content
   get '/history',  to: 'main#history'
+  get '/visiting',  to: 'main#visiting'
   # get '/calendar', to: 'main#calendar'
   get '/weather',  to: 'main#weather'
+  get '/weather_partial',  to: 'main#weather_partial'
   get '/finances', to: 'main#finances'
   get '/contacts', to: 'main#contacts'
 
