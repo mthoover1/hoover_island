@@ -11,15 +11,16 @@ HooverIsland::Application.routes.draw do
 
   # Content
   get '/history',  to: 'main#history'
-  get '/calendar', to: 'main#calendar'
+  # get '/calendar', to: 'main#calendar'
   get '/weather',  to: 'main#weather'
   get '/finances', to: 'main#finances'
+  get '/contacts', to: 'main#contacts'
 
   # Admin
-  get '/admin',    to: 'admin#dashboard'
-  post '/accept_request', to: 'admin#accept_request', as: 'accept_request'
-  post '/flag_request',   to: 'admin#flag_request',   as: 'flag_request'
-  post '/deny_request',   to: 'admin#deny_request',   as: 'deny_request'
+  # get '/admin',    to: 'admin#dashboard'
+  # post '/accept_request', to: 'admin#accept_request', as: 'accept_request'
+  # post '/flag_request',   to: 'admin#flag_request',   as: 'flag_request'
+  # post '/deny_request',   to: 'admin#deny_request',   as: 'deny_request'
 
   # People
   resources :people, only: [:index, :show, :edit, :update]
